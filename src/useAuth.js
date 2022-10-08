@@ -26,27 +26,27 @@ const useAuth = (code) => {
             })
     }, [code])
 
-    useEffect(() => {
-        if (!refreshToken || !expiresIn) return;
-        const timeout = setInterval(() => {
-            axios.post('http://localhost:3001/refresh', { refreshToken }).then(res => {
-                // console.log(res.data);
+    // useEffect(() => {
+    //     if (!refreshToken || !expiresIn) return;
+    //     const timeout = setInterval(() => {
+    //         axios.post('http://localhost:3001/refresh', { refreshToken }).then(res => {
+    //             // console.log(res.data);
 
-                setAccessToken(res.data.access_token);
-                setExpiresIn(res.data.expires_in);
+    //             setAccessToken(res.data.access_token);
+    //             setExpiresIn(res.data.expires_in);
 
 
-            })
-                .catch((err) => {
-                    window.location = '/'
-                    // console.log("use auth err",err);
-                })
-        }
-            , (expiresIn-60)*1000);
+    //         })
+    //             .catch((err) => {
+    //                 window.location = '/'
+    //                 // console.log("use auth err",err);
+    //             })
+    //     }
+    //         , (expiresIn-60)*1000);
 
-            return () => clearInterval(timeout);
+    //         return () => clearInterval(timeout);
 
-    }, [refreshToken, expiresIn])
+    // }, [refreshToken, expiresIn])
     return accessToken;
 };
 
