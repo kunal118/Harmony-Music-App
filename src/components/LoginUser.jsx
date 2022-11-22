@@ -1,10 +1,10 @@
 import React, { useRef, useState } from "react";
 import { Card, Form, Button, Alert } from "react-bootstrap";
-import { useAuth } from "./context/AuthContext";
+import { useAuth } from "../context/AuthContext";
 import { Link } from "react-router-dom";
-import "./css/signin.css";
+import "../css/signin.css";
 // import "jquery";
-
+import querystring from "query-string";
 const LoginUser = () => {
   const emailRef = useRef();
   const passwordRef = useRef();
@@ -16,7 +16,15 @@ const LoginUser = () => {
   async function handleSubmit(e) {
     // console.log("clciked");
     e.preventDefault();
-
+    const AuthURL =
+      "https://accounts.spotify.com/authorize?" +
+      querystring.stringify({
+        response_type: "code",
+        client_id: "c539060f36c843d18519b13486895062",
+        scope:
+          "streaming%20user-read-email%20user-read-private%20user-library-read%20user-library-modify%20user-read-playback-state%20user-modify-playback-state",
+        redirect_uri: "http://localhost:3000",
+      });
     try {
       setError("");
       setLoading(true);
@@ -28,7 +36,8 @@ const LoginUser = () => {
       //   );
       setError("Logged In");
       // alert("correct");
-      window.location = "/";
+
+      window.location = AuthURL;
     } catch (err) {
       // alert("wrong");
       setError("failed to log in");
@@ -37,8 +46,8 @@ const LoginUser = () => {
     setLoading(false);
   }
 
-  window.addEventListener("onload", function() {
-    setTimeout(function() {
+  window.addEventListener("onload", function () {
+    setTimeout(function () {
       document
         .getElementsByClassName(".loader-wrapper")[0]
         .setAttribute("hidden", "true");

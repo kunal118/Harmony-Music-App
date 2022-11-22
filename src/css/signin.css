@@ -4,7 +4,7 @@
 /* CSS */
 html,
 body {
-  overflow-y: hidden;
+  overflow: hidden;
   height: 100vh;
   width: 100vw;
 }
@@ -253,6 +253,14 @@ ul li:nth-child(7) {
   box-shadow: inset 0 0 25px #fff, inset 10px 0 40px #f0f,
     inset -10px 0 40px #0ff, inset 10px 0 150px #f0f, inset -10px 0 150px #0ff,
     0 0 25px #fff, -5px 0 40px #f0f, 5px 0 40px #0ff;
+}
+.glow-ball-loading {
+  width: 10em;
+  height: 10em;
+  opacity: 1;
+  border-style: solid;
+  border-color: white;
+  border-radius: 0%;
 }
 #logoBg {
   position: absolute;
