@@ -39,7 +39,10 @@ const Playlists = ({ setResults, sresults }) => {
     //   setResults(newSongs);
     //   console.log(JSON.stringify(sresults));
     // }, 1000);
-    setResults(newSongs);
+    setResults([]);
+    setTimeout(() => {
+      setResults(newSongs);
+    }, 10);
   }
 
   useEffect(() => {

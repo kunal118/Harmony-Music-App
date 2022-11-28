@@ -72,9 +72,11 @@ function FileUpload() {
   // const { scrollYProgress } = useScroll();
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
-        Launch demo modal
-      </Button>
+      <div className="wrapper1-1-2">
+        <Button variant="primary" onClick={handleShow}>
+          Upload File
+        </Button>
+      </div>
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Body style={modalStyle}>

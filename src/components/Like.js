@@ -42,7 +42,7 @@ const Like = ({ currentSong }) => {
       onClick={() => {
         !disabled && updateLiked();
       }}
-      cursor="pointer"
+      style={{ cursor: "pointer" }}
     >
       {liked ? "❤️" : "🖤"}
     </div>

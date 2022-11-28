@@ -9,11 +9,16 @@ import { useAuth as useLogin } from "../context/AuthContext";
 import Playlists from "./Playlists";
 import FileUpload from "./FileUpload";
 import MusicPlayer from "./MusicPlayer";
+import ErrorPage from "./ErrorPage";
+
 const Dashboardcontent = (props) => {
   const { currentUser } = useLogin();
 
   console.log(props.sresults);
   function handleLogout() {}
+  if (currentUser == null) {
+    return <ErrorPage />;
+  }
   return (
     <div className="wrapper1">
       <div className="wrapper1-1">

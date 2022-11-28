@@ -111,13 +111,16 @@ body {
 h1 {
   font-size: 4em;
 }
+h2 {
+  font-size: 1.4em !important;
+}
 .signin-form {
   padding: 0px;
 }
 .signin-field {
   margin-top: 20px;
   margin-bottom: 20px;
-  font-size: 1.5em;
+  /* font-size: 1.2em !important; */
 }
 
 input:enabled {

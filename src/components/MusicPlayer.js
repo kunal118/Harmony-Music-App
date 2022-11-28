@@ -63,7 +63,7 @@ function Control(props) {
   );
 }
 
-function Progress({ player }) {
+function Progress({ player, idx, setIdx, set }) {
   let [currLength, setCurrLength] = React.useState(0);
   let [length, setLength] = React.useState(0);
   let options = React.useContext(userOptions);
@@ -90,10 +90,10 @@ function Progress({ player }) {
       //   } else if (options.repeat === true) {
       //     player.play();
       //   } else {
-      //     props.setIdx((props.idx + 1) % 9);
+      setIdx((idx + 1) % 9);
       //   }
     }
-  }, 1000);
+  }, 500);
 
   function formatTime(s) {
     return Number.isNaN(s)
@@ -162,7 +162,7 @@ export default function MusicPlayer({ currentSong }) {
   console.log(currentSong);
   const tracks = [
     {
-      name: "pk",
+      name: currentSong.title,
       artist: "pk",
       cover: "",
       source: currentSong.albumUrl,

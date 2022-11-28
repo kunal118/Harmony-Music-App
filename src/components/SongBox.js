@@ -1,9 +1,19 @@
 import React from "react";
-
+import { motion } from "framer-motion";
 const SongBox = (props) => {
   // console.log(props);
   return (
-    <div className="songcard card" style={{ width: "40%" }}>
+    <motion.div
+      initial={{ opacity: 0, scale: 0.5 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{
+        duration: 0.8,
+        delay: 0,
+        ease: [0, 0.71, 0.2, 1.01],
+      }}
+      className="songcard card"
+      style={{ width: "40%" }}
+    >
       <img
         src={props.track.albumUrl}
         className="card-img-top songImg"
@@ -23,7 +33,7 @@ const SongBox = (props) => {
           ▶
         </button>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import SpotifyWebApi from "spotify-web-api-node";
+import { spotifyClient } from "../secrets";
 import useAuth from "../useAuth";
 import Dashboardcontent from "./Dashboard-content";
 
 const spotifyApi = new SpotifyWebApi({
-  clientId: "c539060f36c843d18519b13486895062",
+  clientId: spotifyClient,
 });
 const Dashboard = ({ code }) => {
   const accessToken = useAuth(code);
