@@ -7,31 +7,34 @@ import React from "react";
 import Signup from "@/components/Signup";
 import { Container } from "react-bootstrap";
 import AuthProvider from "@/context/AuthContext";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+// import { createBrowserRouter, RouterProvider } from "react-router-dom";
 // import "./firebase/firebaseStorage/testfile";
+let code;
+if (typeof window !== "undefined") {
+  code = new URLSearchParams(window.location.search).get("code");
+}
 
-const code = new URLSearchParams(window.location.search).get("code");
-
-const router = createBrowserRouter([
-  {
-    path: "/signup",
-    element: <Signup />,
-  },
-  {
-    path: "/",
-    element: code ? <Dashboard code={code} /> : <Login />,
-  },
-  {
-    path: "/login",
-    element: <LoginUser />,
-  },
-]);
+// const router = createBrowserRouter([
+//   {
+//     path: "/signup",
+//     element: <Signup />,
+//   },
+//   {
+//     path: "/",
+//     element: code ? <Dashboard code={code} /> : <Login />,
+//   },
+//   {
+//     path: "/login",
+//     element: <LoginUser />,
+//   },
+// ]);
 
 function App() {
   //console.log(process.env)
   return (
     <AuthProvider>
-      <RouterProvider router={router} />
+      {/* <RouterProvider router={router} /> */}
+      {code ? <Dashboard code={code} /> : <Login />}
     </AuthProvider>
   );
 

@@ -1,7 +1,8 @@
 import { NextResponse } from "next/server";
 import SpotifyWebApi from "spotify-web-api-node";
-console.log(process.env.CLIENT_ID);
+
 export async function POST(req, res) {
+  console.log(process.env.CLIENT_ID);
   const body = await req.json();
   const code = body.code;
   const spotifyApi = new SpotifyWebApi({

@@ -5,7 +5,7 @@ import useAuth from "../useAuth";
 import Dashboardcontent from "./Dashboard-content";
 
 const spotifyApi = new SpotifyWebApi({
-  clientId: "b5815e538c8b46e9ac60e0081ca9f676",
+  clientId: process.env.NEXT_PUBLIC_CLIENT_ID,
 });
 const Dashboard = ({ code }) => {
   const accessToken = useAuth(code);
@@ -22,12 +22,12 @@ const Dashboard = ({ code }) => {
   });
   const [volume, setVolume] = useState("50");
 
-  // useEffect(() => {
-  //   // console.log(accessToken);
-  //   if (!accessToken) return;
-  //   spotifyApi.setAccessToken(accessToken);
-  //   console.log("access token set to " + accessToken);
-  // }, [accessToken]);
+  useEffect(() => {
+    // console.log(accessToken);
+    if (!accessToken) return;
+    spotifyApi.setAccessToken(accessToken);
+    console.log("access token set to " + accessToken);
+  }, [accessToken]);
 
   useEffect(() => {
     // console.log(search,accessToken);
